@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+    id 'io.freefair.lombok' version '8.0.1' // Plugin Lombok
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.projectlombok:lombok:1.18.24'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
