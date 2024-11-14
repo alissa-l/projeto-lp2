@@ -21,7 +21,11 @@ public class Banco {
 
 	public Conta cadastrarConta(Usuario usuario, Conta.TipoConta tipoConta) {
 		Conta conta = new Conta();
-		conta.setNumero(gerarNumeroContaUnico());
+		if (tipoConta == Conta.TipoConta.CORRENTE) {
+			conta.setNumero(gerarNumeroContaUnicoCorrente());
+		} else {
+			conta.setNumero(gerarNumeroContaUnicoPoupanca());
+		}
 		conta.setUsuario(usuario);
 		conta.setTipoConta(tipoConta);
 		usuario.getContas().add(conta);
@@ -32,8 +36,12 @@ public class Banco {
 		return usuarios.get(cpf);
 	}
 
-	private String gerarNumeroContaUnico() {
-		return "ACC" + (usuarios.size() + 1);
+	private String gerarNumeroContaUnicoPoupanca() {
+		return "POU" + (int)(Math.random() * 1000000);
+	}
+
+	private String gerarNumeroContaUnicoCorrente() {
+		return "COR" + (int)(Math.random() * 1000000);
 	}
 
 	public Map<String, Usuario> getUsuarios() {

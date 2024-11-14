@@ -3,10 +3,14 @@ package com.bank.model;
 public enum Acao {
     CADASTRAR_USUARIO,
     CADASTRAR_CONTA,
+    LISTAR_CONTAS,
     CONSULTAR_SALDO,
     DEPOSITAR,
     SACAR,
     TRANSFERIR,
     AUTENTICAR_USUARIO,
-    SAIR
+    LOGOUT,
+    SAIR,
+    DADOS_TESTE,
+    IMPRIMIR_RELATORIO
 }
